@@ -1,0 +1,275 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --bgColor: #eef5ff;
+  --titleColor: #3b3b71;
+  --subtitleColor: #8a8aaa;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+body .App {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bgColor);
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+body .App .flex {
+  display: flex;
+}
+body .App .title {
+  font-family: "Merriweather", serif !important;
+  font-weight: 900;
+  color: var(--titleColor);
+}
+body .App .subtitle {
+  color: var(--subtitleColor);
+  font-weight: 500;
+}
+body .App .container {
+  padding: 2.5rem;
+}
+body .App .container .titleArea {
+  display: grid;
+  gap: 0.7rem;
+}
+body .App .card {
+  width: 22.4rem;
+  height: 40.8rem;
+  background-color: #fff;
+  position: absolute;
+  border-radius: 2rem;
+  transition: 1s all;
+  box-shadow: 0px 10px 15px 1px rgba(180, 180, 227, 0.226);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+body .App .card::-webkit-scrollbar-thumb {
+  background-color: var(--titleColor);
+}
+body .App .card::-webkit-scrollbar {
+  background-color: var(--bgColor);
+  width: 8px;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+body .App .card #btnAdd {
+  margin: 2rem auto;
+  background-color: var(--titleColor);
+  color: var(--bgColor);
+  border: none;
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.4rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+body .App .card.todoList .container {
+  display: grid;
+}
+body .App .card.todoList .container.empty-card {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 80%;
+  color: var(--subtitleColor);
+  opacity: 0.5;
+}
+body .App .card.todoList .container.empty-card .todosVazias svg {
+  font-size: 8rem;
+}
+body .App .card.todoList .container .titleArea {
+  display: grid;
+  gap: 0.4rem;
+}
+body .App .card.todoList .container .todosList,
+body .App .card.todoList .container .todosListComplete {
+  padding: 1.6rem 0;
+}
+body .App .card.todoList .container .todosList h2,
+body .App .card.todoList .container .todosListComplete h2 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--titleColor);
+  margin-bottom: 1rem;
+}
+body .App .card.todoList .container .todosList ul,
+body .App .card.todoList .container .todosListComplete ul {
+  display: grid;
+  gap: 1.2rem;
+}
+body .App .card.todoList .container .todosList ul li,
+body .App .card.todoList .container .todosListComplete ul li {
+  font-size: 1rem;
+  font-weight: 500;
+  align-items: center;
+}
+body .App .card.todoList .container .todosList ul li input[type=checkbox],
+body .App .card.todoList .container .todosListComplete ul li input[type=checkbox] {
+  display: none;
+  /* Esconde os inputs */
+}
+body .App .card.todoList .container .todosList ul li input[type=checkbox]:checked + li,
+body .App .card.todoList .container .todosListComplete ul li input[type=checkbox]:checked + li {
+  display: none !important;
+}
+body .App .card.todoList .container .todosList ul li .circle,
+body .App .card.todoList .container .todosListComplete ul li .circle {
+  display: inline-block;
+  width: 2rem !important;
+  height: 2rem;
+  border-radius: 50%;
+  margin: 0 0.6rem 0 0;
+  cursor: pointer;
+  border: 1px solid var(--titleColor);
+}
+body .App .card.todoList .container .todosList ul li input[type=checkbox]:checked + label,
+body .App .card.todoList .container .todosListComplete ul li input[type=checkbox]:checked + label {
+  background-position: 0 -90px;
+}
+body .App .card.todoList .container .todosListComplete ul li {
+  opacity: 0.6;
+}
+body .App .card.todoList .container .todosListComplete ul li label {
+  text-decoration: line-through;
+  transition: 6s ease text-decoration;
+}
+body .App .card.todoList .container .todosListComplete ul li .circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .App .card.todoList .container .todosListComplete ul li .circle svg {
+  transform: scale(1.3);
+}
+body .App .card.todoReg .formArea {
+  display: grid;
+  justify-content: center;
+  padding: 2rem 0;
+}
+body .App .card.todoReg .formArea p {
+  font-size: 1.1rem;
+}
+body .App .card.todoReg .formArea input {
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 1rem;
+  border: 1px solid var(--subtitleColor);
+  box-shadow: none;
+  outline: none;
+}
+body .App .card.todoReg .formArea input::-moz-placeholder {
+  font-size: 1.1rem;
+  opacity: 0.7;
+}
+body .App .card.todoReg .formArea input:-ms-input-placeholder {
+  font-size: 1.1rem;
+  opacity: 0.7;
+}
+body .App .card.todoReg .formArea input::placeholder {
+  font-size: 1.1rem;
+  opacity: 0.7;
+}
+body .App .card.todoReg .formArea .buttonArea {
+  display: grid;
+  width: 100%;
+  justify-content: center;
+  gap: 1rem;
+}
+body .App .card.todoReg .formArea .buttonArea button {
+  cursor: pointer;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  color: var(--bgColor);
+  background-color: var(--titleColor);
+}
+body .App .card.todoReg .formArea .buttonArea button.cancelar {
+  background-color: #08084e;
+}
+body .App .card.front {
+  transition: all 1s;
+  background-color: #fff;
+  -webkit-animation: showCard 1s ease forwards;
+          animation: showCard 1s ease forwards;
+}
+body .App .card.back {
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: all 1s;
+  overflow: hidden;
+  -webkit-animation: disableCard 1s ease forwards;
+          animation: disableCard 1s ease forwards;
+}
+
+@-webkit-keyframes showCard {
+  0% {
+    z-index: 1;
+    transform: translateX(2.8rem) scale(0.9);
+  }
+  50% {
+    transform: translateX(24.8rem) scale(1);
+    z-index: 2;
+  }
+  100% {
+    transform: translateX(0);
+    z-index: 2;
+  }
+}
+
+@keyframes showCard {
+  0% {
+    z-index: 1;
+    transform: translateX(2.8rem) scale(0.9);
+  }
+  50% {
+    transform: translateX(24.8rem) scale(1);
+    z-index: 2;
+  }
+  100% {
+    transform: translateX(0);
+    z-index: 2;
+  }
+}
+@-webkit-keyframes disableCard {
+  0% {
+    z-index: 2;
+    transform: translateX(0), scale(1);
+  }
+  50% {
+    z-index: 1;
+    transform: translateX(-10.8rem);
+  }
+  100% {
+    transform: translateX(2.8rem) scale(0.9);
+    z-index: 1;
+  }
+}
+@keyframes disableCard {
+  0% {
+    z-index: 2;
+    transform: translateX(0), scale(1);
+  }
+  50% {
+    z-index: 1;
+    transform: translateX(-10.8rem);
+  }
+  100% {
+    transform: translateX(2.8rem) scale(0.9);
+    z-index: 1;
+  }
+}/*# sourceMappingURL=App.css.map */
